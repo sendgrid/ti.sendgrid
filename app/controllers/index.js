@@ -1,6 +1,6 @@
 function doClick(e) {
-	var api_user="<your_user_name>";
-	var api_key="<your_password>";
+	var api_user="<youruser>";
+	var api_key="<yourpassword>";
 
 	var sendgrid  = require('tisendgrid')(api_user, api_key);
 
@@ -13,11 +13,13 @@ function doClick(e) {
 	}
 
 	var email={
-	  		to:       'ralcocer@aranay.com',
-	  		from:     'alco@ricardoalcocer.com',
-	  		subject:  'Hello World',
-	  		text:     'My first email through SendGrid.',
-	  		html: 	  '<b>This is a test!!!</b>'
+	  		to:       	'to@email.com',
+	  		toname: 	'to name',
+	  		from:  	   	'from@email.com',
+	  		fromname: 	'from name',
+	  		subject:  	'Hello World',
+	  		text:     	'My first email through SendGrid.',
+	  		html: 	  	'<b>This is a test!!!</b>'
 		}
 
 

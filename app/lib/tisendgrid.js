@@ -1,5 +1,5 @@
 /*
-* Sendgrid module for Appcelerator Titanium
+* tiSendgrid : a Sendgrid module for Appcelerator Titanium
 * Author: Ricardo Alcocer (@ricardoalcocer)
 *
 * Based on https://github.com/sendgrid/sendgrid-nodejs
@@ -19,7 +19,6 @@ var Sendgrid = function(api_user, api_key) {
 
     var postOptions = {
       method  : 'POST',
-      //uri     : 'http://posttestserver.com/post.php'
       uri     : 'https://api.sendgrid.com/api/mail.send.json'
     };
 
