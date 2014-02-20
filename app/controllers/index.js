@@ -1,8 +1,6 @@
 function doClick(e) {
-	var api_user="ralcocer";
-	var api_key="mymagic";
-	//var api_user="<youruser>";
-	//var api_key="<yourpassword>";
+	var api_user="<youruser>";
+	var api_key="<yourpassword>";
 
 	var sendgrid  = require('tisendgrid')(api_user, api_key);
 
