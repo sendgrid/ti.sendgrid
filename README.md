@@ -1,5 +1,8 @@
 # ti.sendgrid
 
+> This library was a working proof-of-concept.  The code was recently submitted to Sendgrid, and after some (a lot) of extra coding, it is now Sendgrid's official Titanium Library - Cool!.  This repo will not be maintained.  For an up-to-date version please refer to Sendgrid's Github account.
+
+
 A Sendgrid CommonJS library for Titanium
 
 This module provides basic support for sending emails through Sendgrid from you Titanium App.
