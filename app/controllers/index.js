@@ -4,14 +4,6 @@ function doClick(e) {
 
 	var sendgrid  = require('tisendgrid')(api_user, api_key);
 
-	var cb_onsuccess = function(e) {
-		console.log('Success: ' + e);
-	};
-
-	var cb_onerror = function(err, status, body) {
-		console.log('Error: ' + err + '; Status: ' + status + '; Body: ' + body);
-	};
-
 	var email = {
 	  to:       	['john@doe.com', 'doe@emai.com'],
 	  from:  	   'yamil@aloha.com',
@@ -21,7 +13,11 @@ function doClick(e) {
 
 	var message = sendgrid.Email(email);
 
-	sendgrid.send(message,cb_onsuccess,cb_onerror);
+	sendgrid.send(message, function(e) {
+		if (e) {
+			console.log(e);
+		}
+	});
 }
 
 $.index.open();
