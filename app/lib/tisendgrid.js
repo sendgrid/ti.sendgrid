@@ -153,6 +153,10 @@ Email.prototype.addToName = function(name) {
   }
 };
 
+Email.prototype.setFrom = function(email) {
+  this.body['from'] = email;
+};
+
 Email.prototype.setFromName = function(name) {
   this.body['fromname'] = name;
 };
@@ -245,13 +249,13 @@ function SendGrid(api_user, api_key) {
   };
 
   //Priviledged
-  this.send = function (email, success, error) {
+  this.send = function (email, cb) {
     var client = Ti.Network.createHTTPClient({
       onload: function(e) {
-        success(this.responseText);
+        cb(null);
       },
       onerror: function(e) {
-        error(this.error, this.status, this.responseText);
+        cb(JSON.parse(this.responseText));
       },
       timeout: 5000
     });
