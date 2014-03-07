@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+SMTPAPI Library for AppC
+*/
+
 function smtpapi(header) {
   header = header || {};
   this.header = {};
@@ -93,11 +97,14 @@ smtpapi.prototype.jsonString = function() {
   return JSON.stringify(header);
 };
 
+/*
+SendGrid.Email implementation for AppC
+*/
+
 function Email(mail) {
-  if(!(this instanceof Email)) {
+  if (!(this instanceof Email)) {
     return new Email(mail);
   }
-
 
   mail = mail || {};
   smtpapi.call(this, mail['x-smtpapi'])
@@ -211,7 +218,7 @@ Email.prototype.getEmail = function() {
 };
 
 function SendGrid(api_user, api_key) {
-  if(!(this instanceof SendGrid)) {
+  if (!(this instanceof SendGrid)) {
     return new SendGrid(api_user, api_key);
   }
 
