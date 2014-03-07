@@ -1,40 +1,121 @@
-# ti.sendgrid
+# Titanium SendGrid
 
-A Sendgrid CommonJS library for Titanium
+Simple CommonJS library to be used in Titanium projects in order to
+send emails through
+[SendGrid's Web API](http://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
-This module provides basic support for sending emails through Sendgrid from you Titanium App.
+## Installation
 
-## Usage
+Titanium IDE:
 
-	// define api access
-	var api_user="<youruser>";
-	var api_key="<yourpassword>";
+* Copy tisendgrid.js into your lib folder.
 
-	// load the module
-	var sendgrid  = require('tisendgrid')(api_user, api_key);
+Gittio:
+* **TODO**
 
-	// define success callback
-	var cb_onsuccess=function(e){
-		console.log('Success: ' + e)
+## Example
+
+```js
+var sendgrid = require('tisendgrid')('SENDGRID-USERNAME', 'SENDGRID-PASSOWORD');
+sendgrid.send({
+	to: 'john@email.com',
+	from: 'doe@email.com',
+	subject: 'Hello!',
+	text: 'Hello again!'
+}, function (e) {
+	if (e) {
+		console.log(e); // Email wasn't sent
 	}
+});
+```
 
-	// define error callback
-	var cb_onerror=function(err,status,body){
-		console.log('Error: ' + err + '; Status: ' + status + '; Body: ' + body);
-	}
+### Create Email Object
 
-	// create email object
-	var email={
-		to:       		'to@email.com',
-		toname: 		'to name',
-		from:  	   		'from@email.com',
-		fromname: 		'from name',
-		subject:  		'Hello World',
-		text:     		'My first email through SendGrid.', 
- 		html: 	  		'<b>This is a test!!!</b>'
-	}
+```js
+var sendgrid = require('tisendgrid')('SENDGRID-USERNAME', 'SENDGRID-PASSOWORD');
+var email = sendgrid.Email({to: ['john@email', 'doe@email.com']});
+var otherEmail = sendgrid.Email();
+```
 
-	// send email
-	sendgrid.send(email,cb_onsuccess,cb_onerror);
-	
----
+#### Adding Recipients
+
+```js
+email.addTo('jose@email.com');
+email.addTo(['jose2@email.com', 'happy@email.com']);
+```
+
+#### Adding ToName
+
+```js
+email.addToName('Jose');
+email.addToName(['Jose 2', 'Happy']);
+```
+
+#### Setting From
+
+```js
+email.setFrom('joseph@email.com');
+```
+
+#### Setting FromName
+
+```js
+email.setFromName('Joseph');
+```
+
+#### Setting Subject
+
+```js
+email.setSubject('subject');
+```
+
+#### Setting Text
+
+```js
+email.setText('this text');
+```
+
+#### Setting HTML
+
+```js
+email.setHTML('<b>that html</b>');
+```
+
+#### Adding BCC Recipients
+
+```js
+email.addBcc('jose@email.com');
+email.addBcc(['jose2@email.com', 'happy@email.com']);
+```
+
+#### Setting Reply To
+
+```js
+email.setReplyTo('email@email.com');
+```
+
+#### Setting Date
+
+```js
+email.setDate(new Date().toUTCString());
+```
+
+#### Adding Files
+
+```js
+// Filename parameter is optional
+email.addFile('./filepath/file', 'filename');
+email.addFile(,) // titanium blob
+```
+
+#### Setting Header
+
+```js
+email.setHeader('some header');
+```
+
+#### Setting SMTPAPI Header
+
+```js
+email.setAPIHeader('{sub:{key:value}}');
+```
