@@ -105,7 +105,7 @@ email.setDate(new Date().toUTCString());
 ```js
 // Filename parameter is optional
 email.addFile('./filepath/file', 'filename');
-email.addFile(,) // titanium blob
+email.addFile(file); // Titanium.Filesystem.File
 ```
 
 #### Setting Header
@@ -118,4 +118,37 @@ email.setHeader('some header');
 
 ```js
 email.setAPIHeader('{sub:{key:value}}');
+```
+
+## SendGrid's  [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/)
+
+
+### [Substitution](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
+
+```js
+emai.addSubstitution('key', 'value')
+```
+
+### [Section](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
+
+```js
+email.addSection('section', 'value')
+```
+
+### [Category](http://sendgrid.com/docs/Delivery_Metrics/categories.html)
+
+```js
+email.addCategory('category')
+```
+
+### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
+
+```js
+email.addUniqueArg('key', 'value')
+```
+
+### [Filter](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
+
+```js
+email.addFilter('filter', 'setting', 'value')
 ```
