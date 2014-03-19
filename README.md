@@ -1,6 +1,6 @@
 # Titanium SendGrid
 
-A Sendgrid CommonJS library for Titanium
+A SendGrid CommonJS library for Titanium
 
 Simple CommonJS library to be used in Titanium projects in order to
 send emails through
@@ -154,3 +154,10 @@ email.addUniqueArg('key', 'value')
 ```js
 email.addFilter('filter', 'setting', 'value')
 ```
+
+## MIT License
+
+### Notes
+
+Thanks to Ricardo Alcocer for the initial work!
+Pull requests are more than welcomed!
