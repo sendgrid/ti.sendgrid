@@ -159,5 +159,5 @@ email.addFilter('filter', 'setting', 'value')
 
 ### Notes
 
-Thanks to Ricardo Alcocer for the initial work!
+Thanks to [Ricardo Alcocer](https://github.com/ricardoalcocer) for the initial work!
 Pull requests are more than welcomed!
