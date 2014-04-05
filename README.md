@@ -128,7 +128,7 @@ email.setAPIHeader('{sub:{key:value}}');
 ### [Substitution](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
 
 ```js
-emai.addSubstitution('key', 'value')
+email.addSubstitution('key', 'value')
 ```
 
 ### [Section](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
