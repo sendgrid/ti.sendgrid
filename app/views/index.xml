@@ -1,5 +1,23 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+		<View class="fieldset">
+			<Label class="caption">From</Label>
+			<TextField id="from" class="textfield" />
+		</View>
+		<View class="fieldset">
+			<Label class="caption">To</Label>
+			<TextField id="to" class="textfield" />
+		</View>
+		<View class="fieldset">
+			<Label class="caption">Subject</Label>
+			<TextField id="subject" class="textfield" />
+		</View>
+		<View class="fieldset">
+			<Label class="caption">Message</Label>
+		</View>
+		
+		<TextArea id="message" class="message" />
+		
+		<Button id="label" class="sendbtn" onClick="doClick">Send</Button>
 	</Window>
 </Alloy>
