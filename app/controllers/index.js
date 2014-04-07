@@ -5,17 +5,20 @@ function doClick(e) {
 	var sendgrid  = require('tisendgrid')(api_user, api_key);
 
 	var email = {
-	  to:       	['john@doe.com', 'doe@emai.com'],
-	  from:  	   'yamil@aloha.com',
-	  subject:  	'AppC Test',
-	  text:     	'My first email through SendGrid.'
+	  to:       	$.to.value.split(','),
+	  from:  	   	$.from.value,
+	  subject:  	$.subject.value,
+	  text:     	$.message.value
 	};
 
 	var message = sendgrid.Email(email);
 
 	sendgrid.send(message, function(e) {
 		if (e) {
-			console.log(e);
+			console.log(JSON.stringify(e));
+			alert(e.errors[0]);
+		}else{
+			alert('Message sent');
 		}
 	});
 }

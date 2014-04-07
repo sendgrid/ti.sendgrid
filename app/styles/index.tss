@@ -1,8 +1,38 @@
 ".container": {
-	backgroundColor:"white"
-},
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
+	backgroundColor:"white",
+	layout: "vertical",
+	top: 20
+}
+
+".fieldset":{
+	width: Ti.UI.FILL,
+	height: 40
+}
+
+".caption":{
+	left:"5",
+	width:"40%",
 	color: "#000"
-} 
+}
+
+".message":{
+	borderWidth:"1",
+	borderColor:"#bbb",
+	borderRadius:"5",
+	color:"#888",
+	textAlign:"left",
+    width:Ti.UI.FILL,
+    height:"70"
+
+}
+
+".textfield":{
+	 right:"5",
+	 width:"60%",
+	 borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	 color: "#000"
+}
+
+".sendbtn":{
+	color: "#000"
+}
