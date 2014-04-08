@@ -8,9 +8,13 @@ send emails through
 
 ## Installation
 
-Titanium IDE:
+Decompress the file /TiSendGridModule/modules.zip and move the resulting **modules** folder onto your app's root (the folder containing the tiapp.xml).
 
-* Copy tisendgrid.js into your lib folder.
+Then open up your **tiapp.xml** file, scroll down to the modules section and add:
+
+```xml
+<module platform="commonjs">tisendgrid</module>
+```
 
 Gittio:
 * **TODO**
