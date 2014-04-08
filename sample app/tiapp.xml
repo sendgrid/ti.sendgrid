@@ -49,6 +49,7 @@
 		<theme>default</theme>
 	</mobileweb>
 	<modules>
+		<module platform="commonjs">tisendgrid</module>
 	</modules>
 	<deployment-targets>
 		<target device="android">true</target>
