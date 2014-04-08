@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+description: TiSendgrid
+author: Sendgrid
+license: MIT License
+copyright: Copyright (c) 2014 by SendGrid.
+
+
+# these should not be edited
+name: tisendgrid
+moduleid: tisendgrid
+guid: e6c1f573-bd50-48d6-b62b-dca406c9ae6b
+platform: commonjs
+minsdk: 3.2.0.GA

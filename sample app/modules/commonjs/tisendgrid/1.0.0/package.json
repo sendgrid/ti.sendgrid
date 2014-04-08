@@ -1,0 +1,9 @@
+{
+    "description": "tisendgrid",
+    "directories": {
+        "lib": "."
+    },
+    "main": "tisendgrid",
+    "name": "tisendgrid",
+    "version": "1.0.0"
+}
