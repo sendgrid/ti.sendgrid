@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 SMTPAPI Library for AppC
 */
@@ -80,7 +78,7 @@ smtpapi.prototype.addFilter = function(filter, setting, val) {
   if (this.header.filters[filter] === undefined) {
     this.header.filters[filter] = {'settings': {}};
   }
-  this.header.filters[filter]['settings'][setting] = val;
+  this.header.filters[filter].settings[setting] = val;
 };
 
 smtpapi.prototype.setFilters = function(filters) {
@@ -107,23 +105,23 @@ function Email(mail) {
   }
 
   mail = mail || {};
-  smtpapi.call(this, mail['x-smtpapi'])
+  smtpapi.call(this, mail['x-smtpapi']);
   this.body = {};
   this.toCounter = 0;
   this.bccCounter = 0;
   this.tonameCounter = 0;
-  this.addTo(mail['to'] || mail['to[]']);
-  this.addToName(mail['toname'] || mail['toname[]']);
-  this.body['from'] = mail.from || '';
-  this.body['fromname'] = mail.fromname || '';
-  this.body['subject'] = mail.subject || '';
-  this.body['text'] = mail.text || '';
-  this.body['html'] = mail.html || '';
-  this.addBcc(mail['bcc'] || mail['bcc[]'])
-  this.body['replyto'] = mail.replyto || '';
-  this.body['date'] = mail.date || new Date().toUTCString();
-  this.body['headers'] = mail.headers || '';
-  if (mail.files && mail instanceof Array) {
+  this.addTo(mail.to || mail['to[]']);
+  this.addToName(mail.toname || mail['toname[]']);
+  this.addBcc(mail.bcc || mail['bcc[]']);
+  this.body.from = mail.from || '';
+  this.body.fromname = mail.fromname || '';
+  this.body.subject = mail.subject || '';
+  this.body.text = mail.text || '';
+  this.body.html = mail.html || '';
+  this.body.replyto = mail.replyto || '';
+  this.body.dates = mail.date || new Date().toUTCString();
+  this.body.headers = mail.headers || '';
+  if (mail.files && mail.files instanceof Array) {
     for (var i = 0, len = mail.files.length; i < len; i++) {
       this.addFile(mail.files[i].file, mail.files[i].name);
     }
@@ -154,23 +152,23 @@ Email.prototype.addToName = function(name) {
 };
 
 Email.prototype.setFrom = function(email) {
-  this.body['from'] = email;
+  this.body.from = email;
 };
 
 Email.prototype.setFromName = function(name) {
-  this.body['fromname'] = name;
+  this.body.fromname = name;
 };
 
 Email.prototype.setSubject = function(subject) {
-  this.body['subject'] = subject;
+  this.body.subject = subject;
 };
 
 Email.prototype.setText = function(text) {
-  this.body['text'] = text;
+  this.body.text = text;
 };
 
 Email.prototype.setHTML = function(html) {
-  this.body['html'] = html;
+  this.body.html = html;
 };
 
 Email.prototype.addBcc = function(bcc) {
@@ -184,11 +182,11 @@ Email.prototype.addBcc = function(bcc) {
 };
 
 Email.prototype.setReplyTo = function(replyto) {
-  this.body['replyto'] = replyto;
+  this.body.replyto = replyto;
 };
 
 Email.prototype.setDate = function(date) {
-  this.body['date'] = date;
+  this.body.date = date;
 };
 
 Email.prototype.addFile = function(file, name) {
@@ -199,8 +197,8 @@ Email.prototype.addFile = function(file, name) {
   this.body['files[' + name + ']'] = file;
 };
 
-Email.prototype.setHeader = function(header) {
-  this.body['header'] = header;
+Email.prototype.setHeaders = function(header) {
+  this.body.header = header;
 };
 
 Email.prototype.setAPIHeader = function(header) {
@@ -233,8 +231,8 @@ function SendGrid(api_user, api_key) {
     } else {
       mail = (new Email(mail)).getEmail();
     }
-    mail['api_user'] = credentials.api_user;
-    mail['api_key'] = credentials.api_key;
+    mail.api_user = credentials.api_user;
+    mail.api_key = credentials.api_key;
     return mail;
   };
 
@@ -260,7 +258,7 @@ function SendGrid(api_user, api_key) {
       timeout: 5000
     });
 
-    var email = _buildBody(email);
+    email = _buildBody(email);
     client.open(options.method, options.uri);
     client.send(email);
   };
