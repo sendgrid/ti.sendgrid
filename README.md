@@ -1,3 +1,9 @@
+**IMPORTANT ANNOUNCEMENT**
+
+**As of May 1, 2016, SendGrid will no longer support this library.**
+
+Please direct any questions to the [Developer Experience](mailto:dx@sendgrid.com) team.
+
 # Titanium SendGrid
 
 A SendGrid CommonJS library for Titanium
